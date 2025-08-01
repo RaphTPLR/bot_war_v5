@@ -97,14 +97,12 @@ describe('Bot War Server', () => {
 
     describe('Workflow', () => {
         it('should handle complete workflow', async () => {
-            // Set decision
             const decision = { move: 'UP', action: 'COLLECT' };
             await request(app)
                 .post('/set-decision')
                 .send(decision)
                 .expect(200);
 
-            // Get decision
             const response = await request(app)
                 .get('/action')
                 .expect(200);

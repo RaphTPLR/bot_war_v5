@@ -58,7 +58,6 @@ app.get('/action', (req, res) => {
     res.json(lastDecision);
 });
 
-// Export the app and test utilities
 app._resetState = () => {
     manualDecision = null;
     lastDecision = { move: 'STAY', action: 'NONE' };
@@ -71,11 +70,8 @@ app._getState = () => ({
 
 module.exports = app;
 
-// Start server only if this file is run directly
 if (require.main === module) {
     app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
-        console.log('Bot War - Contrôleur Manuel');
-        console.log('Interface de contrôle disponible sur: http://localhost:3000/visualizer');
     });
 }
